@@ -1,0 +1,26 @@
+import java.util.Dictionary<K,V>;
+
+public class Data {
+
+  private Dictionary<String,String> dict;
+  
+  public Data(String Time, String IP, String SD, String SC, String Humid, String atEnd, String isRain, String par){
+    dict = new Dictionary<String,String>();
+    
+    dict.put("Time",Time);
+    dict.put("IP Address",IP);
+    dict.put("Shot Duration",SD);
+    dict.put("Shutter Count",SC);
+    dict.put("Humidity",Humid);
+    dict.put("End",atEnd);
+    dict.put("Rain",isRain);
+    dict.put("Parity",par);
+  }
+  
+  //Method requests value from dict at given key
+  public String getData(String key){
+    String value = null;
+    value = dict.get(key);
+    return value;
+  }
+}
