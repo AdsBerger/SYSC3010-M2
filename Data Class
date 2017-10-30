@@ -21,6 +21,11 @@ public class Data {
   public String getData(String key){
     String value = null;
     value = dict.get(key);
-    return value;
+    if(!value.equals(null)){
+      return value;
+    }else{
+      return "ERROR";
+    }
   }
+  
 }
