@@ -4,11 +4,12 @@ public class Data {
 
   private Dictionary<String,String> dict;
   
-  public Data(String Time, String IP, String SD, String SC, String Humid, String atEnd, String isRain, String par){
+  public Data(String Time, String SIP, String RIP, String SD, String SC, String Humid, String atEnd, String isRain, String par){
     dict = new Dictionary<String,String>();
     
     dict.put("Time",Time);
-    dict.put("IP Address",IP);
+    dict.put("Sender IP",SIP);
+    dict.put("Receiver IP",RIP);
     dict.put("Shot Duration",SD);
     dict.put("Shutter Count",SC);
     dict.put("Humidity",Humid);
