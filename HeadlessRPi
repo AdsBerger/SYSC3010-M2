@@ -1,0 +1,25 @@
+import java.util.Date;
+
+public class HeadlessRPi {
+  
+  private String IP; //This RPi's IP address
+  private String ContIp; //The controller RPi's IP address
+  
+  public HeadlessRPi(){
+    //Set IP
+    InetAddress[] localaddr;
+    try {
+      localaddr = InetAddress.getAllByName("host.name");
+      IP = localaddr.toString();
+    } catch (UnknownHostException e) {
+      e.printStackTrace();
+    }
+    
+    //Set Date
+    
+  }
+  
+  public void SendData(Data){
+    
+  }
+}
