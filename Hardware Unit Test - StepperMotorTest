@@ -1,7 +1,7 @@
 //STEPPER MOTOR TEST PROGRAM
 //written in C for Arduino IDE
 //Adam Berg, November 19th, 2017
-
+//Driver to test the function of the stepper motor (lower levels of the code), as the upper levels of the code are not yet developped.
 
 #include <AFMotor.h>
 
