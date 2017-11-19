@@ -1,7 +1,8 @@
 import java.util.Dictionary<K,V>;
 
 ///////////////////////////////////////
-//Class Description
+//A Data object contains a Connection to an SQL table as well as a Java Dictionary that holds the Time, Sender IP & Receiver IP.
+//This class is meant for the convenience of sending large 
 ///////////////////////////////////////
 public class Data {
 
@@ -9,7 +10,6 @@ public class Data {
   private Connection con;
   
   public Data(String Time, String SIP, String RIP, Connection c){
-  ///////////String SD, String SC, String Humid, String atEnd, String isRain, String par){
   
     dict = new Dictionary<String,String>();
     
@@ -18,13 +18,6 @@ public class Data {
     dict.put("Receiver IP",RIP);
     
     con = c;
-    
-    //////dict.put("Shot Duration",SD);
-    //////dict.put("Shutter Count",SC);
-    //////dict.put("Humidity",Humid);
-    //////dict.put("End",atEnd);
-    //////dict.put("Rain",isRain);
-    //////dict.put("Parity",par);
   }
   
   //Method requests a value to retreive
@@ -37,20 +30,15 @@ public class Data {
     }else{
       //Attempt retrieve from SQL table @ Connection con
       Statement stmt = null;
-      String query = "select " + key + " from tbl";////////////////////EDIT
+      String query = "select " + key + " from tbl where id = max(id)";
       try{
         stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         while(rs.next()) {
-        
-          ////////////////////////////////////////////////////////EDIT RETRIEVED VALUES
-            String coffeeName = rs.getString("COF_NAME");
-            int supplierID = rs.getInt("SUP_ID");
-            float price = rs.getFloat("PRICE");
-            int sales = rs.getInt("SALES");
-            int total = rs.getInt("TOTAL");
-            
-            System.out.println(coffeeName + "\t" + supplierID + "\t" + price + "\t" + sales + "\t" + total);//////////////EDIT
+          String result = rs.getString(key);
+        }
+        if(!result.equals(null)){
+          return result;
         }
       }catch(SQLException e){
         JDBCTutorialUtilities.printSQLException(e);
