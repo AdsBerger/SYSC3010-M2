@@ -1,32 +1,66 @@
 import java.util.Dictionary<K,V>;
 
+///////////////////////////////////////
+//Class Description
+///////////////////////////////////////
 public class Data {
 
   private Dictionary<String,String> dict;
+  private Connection con;
   
-  public Data(String Time, String SIP, String RIP, String SD, String SC, String Humid, String atEnd, String isRain, String par){
+  public Data(String Time, String SIP, String RIP, Connection c){
+  ///////////String SD, String SC, String Humid, String atEnd, String isRain, String par){
+  
     dict = new Dictionary<String,String>();
     
     dict.put("Time",Time);
     dict.put("Sender IP",SIP);
     dict.put("Receiver IP",RIP);
-    dict.put("Shot Duration",SD);
-    dict.put("Shutter Count",SC);
-    dict.put("Humidity",Humid);
-    dict.put("End",atEnd);
-    dict.put("Rain",isRain);
-    dict.put("Parity",par);
+    
+    con = c;
+    
+    //////dict.put("Shot Duration",SD);
+    //////dict.put("Shutter Count",SC);
+    //////dict.put("Humidity",Humid);
+    //////dict.put("End",atEnd);
+    //////dict.put("Rain",isRain);
+    //////dict.put("Parity",par);
   }
   
-  //Method requests value from dict at given key
-  public String getData(String key){
+  //Method requests a value to retreive
+  public String getData(String key) throws SQLException {
+    //Attempt retrieve from dict
     String value = null;
     value = dict.get(key);
     if(!value.equals(null)){
       return value;
     }else{
-      return "ERROR";
+      //Attempt retrieve from SQL table @ Connection con
+      Statement stmt = null;
+      String query = "select " + key + " from tbl";////////////////////EDIT
+      try{
+        stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+        while(rs.next()) {
+        
+          ////////////////////////////////////////////////////////EDIT RETRIEVED VALUES
+            String coffeeName = rs.getString("COF_NAME");
+            int supplierID = rs.getInt("SUP_ID");
+            float price = rs.getFloat("PRICE");
+            int sales = rs.getInt("SALES");
+            int total = rs.getInt("TOTAL");
+            
+            System.out.println(coffeeName + "\t" + supplierID + "\t" + price + "\t" + sales + "\t" + total);//////////////EDIT
+        }
+      }catch(SQLException e){
+        JDBCTutorialUtilities.printSQLException(e);
+      }finally{
+        if (stmt != null){
+          stmt.close();
+        }
+      }
     }
+    return "ERROR";
   }
   
 }
