@@ -2,7 +2,7 @@ import java.util.Dictionary<K,V>;
 
 ///////////////////////////////////////
 //A Data object contains a Connection to an SQL table as well as a Java Dictionary that holds the Time, Sender IP & Receiver IP.
-//This class is meant for the convenience of sending large 
+//This class is meant for the convenience of sending large amounts of information with a a single reference object.
 ///////////////////////////////////////
 public class Data {
 
