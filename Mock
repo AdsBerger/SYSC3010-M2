@@ -1,0 +1,37 @@
+import java.net.*;
+import java.sql.*;
+
+public class Mock{
+
+  private String IP; //Acts as Controller RPi's IP address
+  private alarm al;//Acts as the phone's alarm
+
+  public Mock(){
+    //Set IP
+    InetAddress[] localaddr;
+    try {
+      localaddr = InetAddress.getAllByName("host.name");
+      IP = localaddr.toString();
+    } catch (UnknownHostException e) {
+      e.printStackTrace();
+    }
+    
+    //Set al
+    al = new alarm();
+  }
+  
+  //function of Controller
+  public void SendData(Data){
+    ////Runs an SQL insert command to add data to table. note: id set to autoincrement
+    //String exec = "insert into tbl() values" + ""; //Get Data working w/o Dictionary(obsolete)
+    //Statement stmt = null;
+    //stmt = con.createStatement();
+    //stmt.execute(exec);
+
+    ////Alerts the receiver to retrieve data from the SQL table
+  }
+  
+  public getIP(){
+    return IP;
+  }
+}
