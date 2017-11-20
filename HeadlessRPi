@@ -1,4 +1,4 @@
-//import java.sql.*;
+ d//import java.sql.*;
 import java.net.*;
 
 public class HeadlessRPi {
@@ -20,7 +20,7 @@ public class HeadlessRPi {
     //con = c;
   }
   
-  public void SendData(Data){
+  public void SendData(Data d){
     ////Runs an SQL insert command to add data to table. note: id set to autoincrement
     //String exec = "insert into tbl() values" + ""; //Get Data working w/o Dictionary(obsolete)
     //Statement stmt = null;
