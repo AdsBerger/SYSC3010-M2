@@ -1,8 +1,12 @@
+//import java.sql.*;
+//import java.net.*;
+
 public class HeadlessRPi {
   
   private String IP; //This RPi's IP address
+  //private Connection con;
   
-  public HeadlessRPi(){
+  public HeadlessRPi(){ //Connection c){
   
     //Set IP
     InetAddress[] localaddr;
@@ -13,24 +17,33 @@ public class HeadlessRPi {
       e.printStackTrace();
     }
     
+    //con = c;
   }
   
   public void SendData(Data){
-    //Connection con
+    ////Runs an SQL insert command to add data to table. note: id set to autoincrement
+    //String exec = "insert into tbl() values" + ""; //Get Data working w/o Dictionary(obsolete)
+    //Statement stmt = null;
+    //stmt = con.createStatement();
+    //stmt.execute(exec);
+    
+    ////Alerts the receiver to retrieve data from the SQL table
+    
   }
   
   public void RecData(){
-	}
+  	
+  }
   
   public void alarm(){
-		alarm.CallAlarm();
-	}
+	alarm.CallAlarm();
+  }
   
   public Boolean IsRaining(int humidity){
-		if(humidity>200){
-			alarm();
-			return true;
-		}
-		return false;
+	if(humidity>200){
+		alarm.CallAlarm();
+		return true;
 	}
+	return false;
+  }
 }
