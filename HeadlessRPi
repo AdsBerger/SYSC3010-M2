@@ -1,11 +1,9 @@
-import java.util.Date;
-
 public class HeadlessRPi {
   
   private String IP; //This RPi's IP address
-  private String ContIp; //The controller RPi's IP address
   
   public HeadlessRPi(){
+  
     //Set IP
     InetAddress[] localaddr;
     try {
@@ -15,11 +13,24 @@ public class HeadlessRPi {
       e.printStackTrace();
     }
     
-    //Set Date
-    
   }
   
   public void SendData(Data){
-    
+    //Connection con
   }
+  
+  public void RecData(){
+	}
+  
+  public void alarm(){
+		alarm.CallAlarm();
+	}
+  
+  public Boolean IsRaining(int humidity){
+		if(humidity>200){
+			alarm();
+			return true;
+		}
+		return false;
+	}
 }
