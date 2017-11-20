@@ -8,9 +8,9 @@ int optocoupler = 12;
 int PictureCount;
 bool run = false;
 
-int test1;
-int test2;
-int test3;
+int test_1;
+int test_2;
+int test_3;
 
 void setup()
 {
@@ -18,7 +18,7 @@ void setup()
   Serial.println("Intervalometer Test!");
   //initialize the digital pin to be outputs
   pinMode(LED, OUTPUT);
-  pinMode(opto, OUTPUT);
+  pinMode(optocoupler, OUTPUT);
   //PictureCount would be changed by serial bus from the Controller RPI
 }
 
@@ -26,6 +26,9 @@ void setup()
 
 void loop()
 {
+  test1();
+  test2();
+  test3();
 }
 
 void TakePicture()
@@ -36,32 +39,25 @@ void TakePicture()
         }
         else
         {
-         for (int i = 0; i <= ShutterCount; i++){
-            digitalWrite(LED, HIGH);   //Set LED to on
+         for (int i = 0; i <= PictureCount; i++){
+            digitalWrite(LED, HIGH);   //Set LED to on
             digitalWrite(optocoupler, HIGH);
-            test1++;
-            test
-            delay(1000);               //Second Delay
-            digitalWrite(LED, LOW);    //Set LED to off
+            test_1++;
+            delay(1000);               //Second Delay
+            digitalWrite(LED, LOW);    //Set LED to off
             digitalWrite(optocoupler, LOW);   //Turn off OPTOCOUPLER
             delay(1000);
           }
        PictureCount = 0;
        run = false;
        }
-       
-
 
 }
 
-}
-
-
-void test1()
-{
- ShutterCount = 500;
+void test1(){
+ PictureCount = 10;
  TakePicture();
-   if(test1 == 500)
+   if(test_1 == 11)
    {
     Serial.println("TEST1");
     Serial.println("The intervalometer ran for the correct 500 count");
@@ -74,7 +70,7 @@ void test1()
 
 void test2()
 {
- ShutterCount = -1;
+ PictureCount = -1;
  Serial.println("TEST2");
  TakePicture();
  //main code should of caught negative shutter count
@@ -82,12 +78,18 @@ void test2()
 
 void test3()
 {
- ShutterCount = 0;
+ PictureCount = 0;
  Serial.println("TEST3");
  TakePicture();
  //main code should of caught zero shutter count
 }
 
+
+
+
+
+
+ 
 
 
 
