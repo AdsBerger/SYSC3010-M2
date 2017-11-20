@@ -5,10 +5,28 @@
 public class TestHeadless{
 
   HeadlessRPi hrpi = new HeadlessRPi();
+  Mock mk = new Mock();
 
   @Test
-	public void TestX(){
-        Assert.assertEquals(/*expected result*/, /*method*/);
-	}
+  //Test 1: test mobile to headless
+  public void TestX(){
+  Assert.assertEquals(/*expected result*/, /*method*/);
+  }
 
+  //Test 2: test headless to controller
+  public void TestX(){
+  Assert.assertEquals(/*expected result*/, /*method*/);
+  }
+  
+  @Test
+  //Test 3: test controller to headless
+  public void TestX(){
+  Assert.assertEquals(/*expected result*/, /*method*/);
+  }
+  
+  @Test
+  //Test 4: test headless to mobile
+  public void TestX(){
+  Assert.assertEquals(/*expected result*/, /*method*/);
+  }
 }
