@@ -1,3 +1,5 @@
+import java.sql.*;
+
 ////////////////////////////////////
 //This class tests the Headless RPi class in a isolated environment using a mock object to simulate stimuli
 ////////////////////////////////////
@@ -8,28 +10,32 @@ public class TestHeadless{
   Mock mk = new Mock();
   
   String headlessIP = hrpi.getIP();
-  String mockIP = mk.getIP();
+  String mockIP = mk.getIP(); //enacts as mobile IP and controller IP
 
   @Test
   //Test 1: test mobile to headless
-  public void TestX(){
-  Assert.assertEquals(/*expected result*/, /*method*/);
+  public void TestScenario1(){
+  int time = System.currentTimeMillis();
+  timeS = time.toString();
+  Connection con = DriverManager.getConnection();//database name pending
+  Data d = new Data(timeS,mockIP,headlessIP,con);
+  Assert.assertEquals(/*expected result: SQL table updated, headless has received 'Data'*/, mk.sendData(Data));
   }
 
   //Test 2: test headless to controller
-  public void TestX(){
+  public void TestScenario2(){
   Assert.assertEquals(/*expected result*/, /*method*/);
   }
   
   @Test
   //Test 3: test controller to headless
-  public void TestX(){
+  public void TestScenario3(){
   Assert.assertEquals(/*expected result*/, /*method*/);
   }
   
   @Test
   //Test 4: test headless to mobile
-  public void TestX(){
+  public void TestScenario4(){
   Assert.assertEquals(/*expected result*/, /*method*/);
   }
 }
