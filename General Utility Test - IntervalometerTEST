@@ -2,10 +2,11 @@
 //On demand the arduino will set pin 12 high which will be connected to an opto-coupler which will release the shutter of the dslr
 //'take a picture', and with every 'shutter click' will turn the Arduino's on board LED on.
 
+#include <Wire.h>
 int LED = 13;
 int optocoupler = 12;
 int PictureCount;
-boolean run = false;
+bool run = false;
 
 int test1;
 int test2;
