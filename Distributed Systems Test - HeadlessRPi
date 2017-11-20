@@ -6,6 +6,9 @@ public class TestHeadless{
 
   HeadlessRPi hrpi = new HeadlessRPi();
   Mock mk = new Mock();
+  
+  String headlessIP = hrpi.getIP();
+  String mockIP = mk.getIP();
 
   @Test
   //Test 1: test mobile to headless
