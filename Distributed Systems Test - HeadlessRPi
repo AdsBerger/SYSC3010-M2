@@ -1,0 +1,14 @@
+////////////////////////////////////
+//This class tests the Headless RPi class in a isolated environment using a mock object to simulate stimuli
+////////////////////////////////////
+
+public class TestHeadless{
+
+  HeadlessRPi hrpi = new HeadlessRPi();
+
+  @Test
+	public void TestX(){
+        Assert.assertEquals(/*expected result*/, /*method*/);
+	}
+
+}
