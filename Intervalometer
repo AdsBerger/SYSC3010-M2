@@ -1,21 +1,39 @@
+//ARDUINO INTERVALOMETER CODE
+//On demand the arduino will set pin 12 high which will be connected to an opto-coupler which will release the shutter of the dslr
+//'take a picture', and with every 'shutter click' will turn the Arduino's on board LED on.
 
-int led = 13;
-int opto = 12;
-
-// the setup routine runs once when you press reset:
+int LED = 13;
+int optocoupler = 12;
+int PictureCount;
+boolean run = false;
 void setup()
 {
-// initialize the digital pin as an output.
-pinMode(led, OUTPUT);
+// initialize the digital pin to be outputs
+pinMode(LED, OUTPUT);
 pinMode(opto, OUTPUT);
+//PictureCount would be changed by serial bus from the Controller RPI
 }
 
 // the loop routine runs over and over again forever:
 void loop()
 {
-digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-digitalWrite(opto, HIGH);
-delay(1000);               // wait for a second
-digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
-digitalWrite(opto, LOW);
-delay(
+
+if(run == true){
+    for (int i = 0; i <= ShutterCount; i++){
+      digitalWrite(LED, HIGH);   //Set LED to on
+      digitalWrite(optocoupler, HIGH);
+      delay(1000);               //Second Delay
+      digitalWrite(LED, LOW);    //Set LED to off
+      digitalWrite(optocoupler, LOW);   //Turn off OPTOCOUPLER
+      delay(1000);
+    }
+    PictureCount = 0;
+    run = false;
+}
+else
+{
+}
+
+
+}
+
