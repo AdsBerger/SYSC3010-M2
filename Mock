@@ -31,6 +31,10 @@ public class Mock{
     ////Alerts the receiver to retrieve data from the SQL table
   }
   
+  public alert(){
+    al.CallAlarm();
+  }
+  
   public getIP(){
     return IP;
   }
