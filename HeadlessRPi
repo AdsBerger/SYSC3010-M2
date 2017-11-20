@@ -35,15 +35,20 @@ public class HeadlessRPi {
   	
   }
   
-  public void alarm(){
+  public void alarm(String mobileIP){
+  	
 	alarm.CallAlarm();
   }
   
   public Boolean IsRaining(int humidity){
 	if(humidity>200){
-		alarm.CallAlarm();
+		alarm();
 		return true;
 	}
 	return false;
+  }
+  
+  public String getIP(){
+  	return IP;
   }
 }
