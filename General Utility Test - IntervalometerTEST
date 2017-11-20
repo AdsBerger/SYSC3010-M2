@@ -25,11 +25,21 @@ void setup()
 // the loop routine runs over and over again forever:
 void loop()
 {
-      if(run == true){
+}
+
+void TakePicture()
+{
+        if(PictureCount <= 0)
+        {
+        Serial.println("Minimum Picture Count must 1 or greater (positive and non-zero)");
+        }
+        else
+        {
          for (int i = 0; i <= ShutterCount; i++){
             digitalWrite(LED, HIGH);   //Set LED to on
             digitalWrite(optocoupler, HIGH);
             test1++;
+            test
             delay(1000);               //Second Delay
             digitalWrite(LED, LOW);    //Set LED to off
             digitalWrite(optocoupler, LOW);   //Turn off OPTOCOUPLER
@@ -38,16 +48,18 @@ void loop()
        PictureCount = 0;
        run = false;
        }
-      else
-      {
-      }
+       
+
+
+}
+
 }
 
 
 void test1()
 {
  ShutterCount = 500;
- run = true;
+ TakePicture();
    if(test1 == 500)
    {
       Serial.println("The intervalometer ran for the correct 500 count");
@@ -57,6 +69,25 @@ void test1()
   Serial.println("The intervalometer did not run for the expected output (# of times)");
   }
 }
+
+void test2()
+{
+ ShutterCount = -1;
+ TakePicture();
+ //main code should of caught negative shutter count
+}
+
+void test3()
+{
+ ShutterCount = 0;
+ TakePicture();
+ //main code should of caught zero shutter count
+}
+
+
+
+
+
 
  
 
