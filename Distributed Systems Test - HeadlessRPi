@@ -36,6 +36,6 @@ public class TestHeadless{
   @Test
   //Test 4: test headless to mobile
   public void TestScenario4(){
-  Assert.assertEquals(/*expected result*/, /*method*/);
+  Assert.assertEquals(/*Phone alarm should ring*/, mk.alert());
   }
 }
