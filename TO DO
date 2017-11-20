@@ -1,0 +1,7 @@
+1. video only?
+2. video length presets (30m, 1h, 2h, etc)
+3. #include intervalometer to general utility test (test script can import utility class under test)
+4. connect intevalometer arduino to controller rpi with serial
+5. connect stepper arduino to controller rpi with serial
+6. Intervalometer script takepicture() duration between shots (shot frequency)
+6. 1 Controller RPI # of steps and # of pictures need to correlated/coupled (presets)
