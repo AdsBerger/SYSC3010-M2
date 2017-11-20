@@ -23,6 +23,7 @@ void setup()
 }
 
 // the loop routine runs over and over again forever:
+
 void loop()
 {
 }
@@ -62,7 +63,8 @@ void test1()
  TakePicture();
    if(test1 == 500)
    {
-      Serial.println("The intervalometer ran for the correct 500 count");
+    Serial.println("TEST1");
+    Serial.println("The intervalometer ran for the correct 500 count");
    }
   else
   {
@@ -73,6 +75,7 @@ void test1()
 void test2()
 {
  ShutterCount = -1;
+ Serial.println("TEST2");
  TakePicture();
  //main code should of caught negative shutter count
 }
@@ -80,6 +83,7 @@ void test2()
 void test3()
 {
  ShutterCount = 0;
+ Serial.println("TEST3");
  TakePicture();
  //main code should of caught zero shutter count
 }
