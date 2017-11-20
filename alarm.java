@@ -21,8 +21,4 @@ public class alarm implements ActionListener{
 		JOptionPane.showMessageDialog(null,"Alarm starts, press 'OK' to cancel ");
 		System.exit(0);
 	}
-	
-	public static void main(String[] args)
-	{
-	}
 }
