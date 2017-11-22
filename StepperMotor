@@ -1,0 +1,52 @@
+
+#include <Wire.h>
+#include <Adafruit_MotorShield.h>
+#include "utility/Adafruit_MS_PWMServoDriver.h"
+Adafruit_MotorShield AFMS = Adafruit_MotorShield();
+Adafruit_StepperMotor *motor = AFMS.getStepper(200, 2);
+int x = 0;
+
+int Step1 = 50;
+int Step2 = 100;
+int Step3 = 200;
+int Step4 = 275;
+
+void setup()
+{
+  AFMS.begin(); 
+  Serial.begin(9600);
+  motor->setSpeed(5); //Speed set to 5 rotations per minute
+}
+
+
+void loop()
+{
+  if (Serial.available())
+  {
+    x = (Serial.read()- '0');
+      if(x == 1)
+      {
+        run(Step1);
+      }
+      if(x == 2)
+      {
+        run(Step2);
+      }
+      if(x == 3)
+      {
+        run(Step3);
+      }
+      if(x == 4)
+      {
+        run(Step4);
+      }
+  }
+delay(500);
+}
+
+void run(int Steps)
+{
+    motor->step(Steps,FORWARD,SINGLE);
+    delay(3000);
+    motor->step(Steps,BACKWARD, SINGLE);
+}
