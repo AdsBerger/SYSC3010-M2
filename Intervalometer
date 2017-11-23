@@ -6,6 +6,21 @@ int LED = 13;
 int optocoupler = 12;
 int PictureCount;
 boolean run = false;
+int mode = 0;
+
+//PRESETS FOR TIMELAPSE
+TLlen5  = 1;    //5 seconds
+TLlen10 = 2;    //10 seconds
+TLlen15 = 3;    //15 seconds
+TLlen30 = 4;    //30 seconds
+TLlen60 = 5;    //1 minute
+
+//PRESETS FOR VIDEO
+VIDlen30 = 1; //30 seconds
+VIDlen60 = 2; //1 minute
+VIDlen120 = 3; //2 minutes
+VIDlen300 = 4; //5 minutes
+VIDlen900 = 5; //15 minutes
 
 
 void setup()
@@ -20,22 +35,55 @@ pinMode(opto, OUTPUT);
 // the loop routine runs over and over again forever:
 void loop()
 {
-
-if(run == true){
-    for (int i = 0; i <= ShutterCount; i++){
-      digitalWrite(LED, HIGH);   //Set LED to on
-      digitalWrite(optocoupler, HIGH);
-      delay(1000);               //Second Delay
-      digitalWrite(LED, LOW);    //Set LED to off
-      digitalWrite(optocoupler, LOW);   //Turn off OPTOCOUPLER
-      delay(1000);
+if(Serial.available())
+{
+    x = (Serial.read() - '0');
+    if( x == 1 )
+    { 
+        mode = 1;
     }
-    PictureCount = 0;
-    run = false;
+    if( x == 2 )
+    {
+        mode = 2; 
+    }
+    if 
+
 }
 else
 {
 }
+
+
+}
+
+
+
+
+
+
+void takeVideo(int shuttercount)
+{
+
+
+
+
+}
+
+
+void takePicture(int shuttercount)
+{
+        if(run == true){
+            for (int i = 0; i <= ShutterCount; i++){
+                digitalWrite(LED, HIGH);   //Set LED to on
+                digitalWrite(optocoupler, HIGH);
+                delay(1000);               //Second Delay
+                digitalWrite(LED, LOW);    //Set LED to off
+                digitalWrite(optocoupler, LOW);   //Turn off OPTOCOUPLER
+                delay(1000);
+    }
+    PictureCount = 0;
+    run = false;
+
 
 
 }
