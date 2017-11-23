@@ -6,8 +6,11 @@ int LED = 13;
 int optocoupler = 12;
 int PictureCount;
 boolean run = false;
+
+
 void setup()
 {
+Serial.begin(9600);
 // initialize the digital pin to be outputs
 pinMode(LED, OUTPUT);
 pinMode(opto, OUTPUT);
