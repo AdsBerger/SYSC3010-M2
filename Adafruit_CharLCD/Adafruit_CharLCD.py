@@ -441,4 +441,4 @@ class Adafruit_CharLCDPlate(Adafruit_RGBCharLCD):
         """Return True if the provided button is pressed, False otherwise."""
         if button not in set((SELECT, RIGHT, DOWN, UP, LEFT)):
             raise ValueError('Unknown button, must be SELECT, RIGHT, DOWN, UP, or LEFT.')
-return self._mcp.input(button) == GPIO.LOW
+        return self._mcp.input(button) == GPIO.LOW
