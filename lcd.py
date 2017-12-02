@@ -18,8 +18,8 @@ lcd_en        = 18
 lcd_d4        = 11
 lcd_d5        = 12
 lcd_d6        = 13
-lcd_d7        = 5
-lcd_backlight = 21
+lcd_d7        = 15
+lcd_backlight = 22
 
 # Define LCD column and row size for 16x2 LCD.
 lcd_columns = 16
