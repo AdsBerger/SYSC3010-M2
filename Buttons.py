@@ -1,3 +1,5 @@
+#Example code needed to control a single push switch
+
 import RPi.GPIO as GPIO
 import time
 
