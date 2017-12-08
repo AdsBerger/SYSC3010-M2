@@ -12,7 +12,7 @@ Haohan Zhang – 101018373
 
 
 
-There are Folder container work done for each of the Camera Sliders systems. The files used during project demonstration are listed below with their main interfacing unit respectively. These are stored in their own folder named "Files Used During Demo", the Android App files were also used yet are in their own folder named "Android App Files"
+There are Folders containing work done for each of the Camera Sliders systems. The files used during project demonstration are listed below with their main interfacing unit respectively. These are stored in their own folder named "Files Used During Demo", the Android App files were also used yet are in their own folder named "Android App Files"
 
 Headless Raspberry Pi that interfaced with the App, used:
 HeadlessRPi.py
