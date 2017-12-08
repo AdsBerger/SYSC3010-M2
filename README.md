@@ -12,7 +12,7 @@ Haohan Zhang – 101018373
 
 
 
-Final files used during project demonstration:
+There are Folder container work done for each of the Camera Sliders systems. The files used during project demonstration are listed below with their main interfacing unit respectively. These are stored in their own folder named " Files Used During Demo "
 
 Headless Raspberry Pi that interfaced with the App, used:
 HeadlessRPi.py
